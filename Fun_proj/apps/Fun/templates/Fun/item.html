@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{item.name}}</title>
+</head>
+<body>
+    <div class="header">
+        <a href="/wish_items/dashboard" class='right1'>Home</a>
+        <a href="/logout">Logout</a>  
+    </div> 
+    <h1>{{item.name}}</h1>
+    <h3>Other users who have wished for this item:</h3>
+    {% for user in Users %}
+    <p>{{user.first_name}} {{user.last_name}}</p>
+    {% endfor %}
+</body>
+</html>

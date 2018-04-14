@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Books Home</title>
+    <!-- {% load static %} -->
+<!-- The line above tells Django to be ready to listen for static files -->
+    <!-- <link rel="stylesheet" href="{% static 'dashboard/css/style.css' %}" media="screen" title="no title"  charset="utf-8"> -->
+<!-- Put the static files in the static folder inside your app.  Django collects files within all static folders and puts them within a single folder -->    
+</head>
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <h1>Welcome, {{user.first_name}}</h1>
+            <a href="/add"  class='right1'>Add Book and Review</a>
+            <a href="/logout">Logout</a>  
+        </div>   
+        <div class="left">
+            <h3>Recent Book Reviews:</h3>
+            {% for review in reviews %}
+            <a href="/books/{{review.book.id}}">{{book.review.name}}</a>
+            <div class="review">
+                <p>Rating: {{review.rating}}/5</p>
+                <p>
+                    <a href="/users/{{review.reviewer.id}}">{{review.reviewer.first_name}}</a>
+                    says: {{review.content}}
+                </p>
+                <p>
+                    Posted on {{review.created_at}}
+                </p>
+                {% if request.session.user_id == review.reviewer.id %}
+                <a href="/books/{{review.id}}/delete">Delete Your Review</a>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div> 
+        <div class="right">
+            <h3>Other Books with Reviews:</h3>
+            <div class="right-box">
+                {% for book in books %}
+                <p>
+                    <a href="/books/{{review.book.id}}">{{book.review.name}}</a>
+                </p>
+                {% endfor %}
+            </div>
+        </div>   
+    </div>    
+</body>
+</html>

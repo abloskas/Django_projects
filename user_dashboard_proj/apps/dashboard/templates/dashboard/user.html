@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>User Reviews</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <a href="/success" class='right1'>Home</a>
+            <a href="/add"  class='right1'>Add Book and Review</a>
+            <a href="/logout">Logout</a>  
+        </div> 
+        <div class="user-content">
+            User Alias: {{user.first_name}}
+            Name: {{user.first_name}} {{user.last_name}}
+            Email: {{user.email}}
+            Total Reviews: {{ user.reviews.count }}
+        </div> 
+    </div>
+</body>
+</html>

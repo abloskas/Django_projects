@@ -1,0 +1,21 @@
+.wrapper{
+    width: 970px;
+    height: auto;
+    margin-left: 300px;
+}
+
+.time{
+    border: 1px solid black;
+    width: 200px;
+}
+
+.line {
+    border: 1px solid black;
+    padding: 10px;
+    margin: 10px;
+    width: 300px;
+    height: 100px;
+    font-weight: bold;
+    font-size: 25px;
+    text-align: center;
+}

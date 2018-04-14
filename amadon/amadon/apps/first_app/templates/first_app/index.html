@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Amadon: Shop</title>
+</head>
+<body>
+    <h1>Dojo Shop</h1>
+    <table>
+		<tr>
+			<th>Item</th>
+			<th>Price</th>
+			<th>Quantity</th>
+			<th>Actions</th>
+		</tr>
+		<tr>
+			<td>Dojo Tshirt</td>
+			<td>$19.99</td>
+			<form method="POST" action="/checkout">
+			{% csrf_token %}
+			<td>
+				<select name="quantity">
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+				</select>
+			</td>
+			<td>
+				<input type="hidden" name="product_id" value="1012">
+				<input type="submit" name="buy" value="Buy">
+			</td>
+			</form>
+		</tr>
+		<tr>
+			<td>Dojo Sweater</td>
+			<td>$29.99</td>
+			<form method="POST" action="/checkout">
+			{% csrf_token %}	
+			<td>
+				<select name="quantity">
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+				</select>
+			</td>
+			<td>
+				<input type="hidden" name="product_id" value="1013">
+				<input type="submit" name="buy" value="Buy">
+			</td>
+			</form>
+		</tr>
+		<tr>
+			<td>Dojo Cup</td>
+			<td>$4.99</td>
+			<form method="POST" action="/checkout">
+			{% csrf_token %}
+			<td>
+				<select name="quantity">
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+				</select>
+			</td>
+			<td>
+				<input type="hidden" name="product_id" value="1014">
+				<input type="submit" name="buy" value="Buy">
+			</td>
+			</form>
+		</tr>
+		<tr>
+			<td>Algorithm Book</td>
+			<td>$49.99</td>
+			<form method="POST" action="/checkout">
+			{% csrf_token %}
+			<td>
+				<select name="quantity">
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+				</select>
+			</td>
+			<td>
+				<input type="hidden" name="product_id" value="1015">
+				<input type="submit" name="buy" value="Buy">
+			</td>
+			</form>
+		</tr>
+	</table> 
+</body>
+</html>

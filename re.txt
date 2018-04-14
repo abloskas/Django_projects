@@ -1,0 +1,46 @@
+identifiers 
+ \d     is any number
+ \D     is anything BUT a number 
+ \s     is a space
+ \S     is anything BUT a space
+ \w     is any character 
+\W      is anything BUT a character
+.      any character EXCEPT for a new line
+\b     the white space around words
+\.      a period 
+
+
+
+modifiers 
+{1,3} we're expecting 1-3       ex:    \d{1-3} 
++     match 1 or modifiers
+?     match 0 or 1          
+*     match 0 or more
+$     match the end of a string
+^     match the beginning of a string 
+|     match EITHER OR          ex: \d{1-3} | \w{5-6}
+[]    range or "variance"      ex: [A-Z] or [A-Za-z]  or [1-5a-qA-Z]
+{x}   expects a specific data    ex: expecting x amount 
+
+
+White Space characters
+\n    new line
+\s    new space
+\t    tab
+\e    escape
+\f     form feed
+\r     return 
+
+
+DONT FORGET!
+. + * ? [] $ ^ () {} | \
+
+
+
+import re 
+
+exampleString = '''
+Jessica is 15 years old, and Daniel is 27 years old.
+Edward is 97, and his grandfather, Oscar, is 102. 
+'''
+

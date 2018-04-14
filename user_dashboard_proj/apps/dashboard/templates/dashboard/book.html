@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Add Book and Review: {{book.title}}</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <a href="/success" class='right1'>Home</a>
+            <a href="/logout">Logout</a>  
+        </div> 
+        <h3>{{book.title}}</h3>
+            Author: <select name="author">
+                {% for book in books %}
+                <option value="{{book.author.name}}">{{book.author.name}}</option>
+                {% endfor %}
+            </select>
+        <div class="left">
+            <h2>Reviews:</h2>
+                <div class="review">
+                    {% for review in book.reviews.all %}
+                    <p>Rating: {{review.rating}}/5</p>
+                    <p>
+                        <a href="/users/{{review.reviewer.id}}">{{review.reviewer.first_name}}</a>
+                        says: {{review.content}}
+                    </p>
+                    <p>
+                        Posted on {{review.created_at}}
+                    </p>
+                    {% if request.session.user_id == review.reviewer.id %}
+                    <a href="/books/{{review.id}}/delete">Delete Your Review</a>
+                    {% endif %}
+                </div>
+                {% endfor %}
+            </div> 
+            <div class="right">
+                <h3>Add a Review</h3>
+                <div class="right-box">
+                    <form action="/books/add/book-review" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="book_id" value="{{book.id}}">
+                    <textarea name="content"></textarea>
+                    Rating: 
+                    <select name="rating"> 
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                    stars.
+                    <input type="submit" value="Submit Review">
+                    </form>
+                </div>
+            </div>   
+    </div>
+</body>
+</html>
